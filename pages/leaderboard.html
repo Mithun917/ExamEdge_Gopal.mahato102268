@@ -1,0 +1,66 @@
+<!-- ============================================================
+     ExamEdge Pro — pages/leaderboard.html
+     ============================================================ -->
+<div class="page-root">
+
+  <div class="page-header">
+    <div class="page-header__eyebrow">Rankings</div>
+    <h1 class="page-header__title">Leaderboard</h1>
+    <p class="page-header__subtitle">See how you rank among all learners. Keep earning XP and climbing!</p>
+    <div class="page-header__actions">
+      <button class="btn btn--primary btn--sm" data-lb-filter="xp">⚡ By XP</button>
+      <button class="btn btn--secondary btn--sm" data-lb-filter="streak">🔥 By Streak</button>
+      <button class="btn btn--ghost btn--sm" id="btn-refresh-lb" title="Refresh leaderboard">
+        ↻ Refresh
+      </button>
+    </div>
+  </div>
+
+  <!-- Podium -->
+  <div class="card" style="margin-bottom:var(--space-6);text-align:center">
+    <div class="card__title" style="margin-bottom:var(--space-6)">🏆 Top 3 Scholars</div>
+    <div id="lb-podium" style="display:flex;justify-content:center;align-items:flex-end;gap:var(--space-6)">
+      <!-- Injected by leaderboard.js -->
+      <div class="skeleton" style="height:160px;width:80px;border-radius:var(--radius-md)"></div>
+      <div class="skeleton" style="height:200px;width:80px;border-radius:var(--radius-md)"></div>
+      <div class="skeleton" style="height:130px;width:80px;border-radius:var(--radius-md)"></div>
+    </div>
+  </div>
+
+  <!-- Full List -->
+  <div class="card">
+    <div class="card__header">
+      <div>
+        <div class="card__title">All Rankings</div>
+        <div class="card__subtitle">Updated in real-time</div>
+      </div>
+      <span class="badge badge--blue" id="lb-count">Loading…</span>
+    </div>
+
+    <!-- Column Headers -->
+    <div style="display:flex;align-items:center;gap:var(--space-4);
+      padding:var(--space-2) var(--space-4);
+      font-size:var(--text-xs);font-weight:600;letter-spacing:0.05em;
+      text-transform:uppercase;color:var(--clr-text-faint);
+      border-bottom:1px solid var(--clr-border);margin-bottom:var(--space-2)">
+      <span style="width:28px;text-align:center">#</span>
+      <span style="width:34px"></span>
+      <span style="flex:1">Scholar</span>
+      <span>Score</span>
+    </div>
+
+    <!-- Rows injected by leaderboard.js -->
+    <div id="lb-list">
+      <!-- Skeleton rows while loading -->
+      <div style="display:flex;flex-direction:column;gap:var(--space-3);padding:var(--space-2) 0">
+        <div class="skeleton" style="height:48px;border-radius:var(--radius-md)"></div>
+        <div class="skeleton" style="height:48px;border-radius:var(--radius-md)"></div>
+        <div class="skeleton" style="height:48px;border-radius:var(--radius-md)"></div>
+        <div class="skeleton" style="height:48px;border-radius:var(--radius-md)"></div>
+        <div class="skeleton" style="height:48px;border-radius:var(--radius-md)"></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

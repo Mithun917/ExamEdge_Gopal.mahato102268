@@ -1,0 +1,70 @@
+<!-- ============================================================
+     ExamEdge Pro — pages/practice.html
+     ============================================================ -->
+<div class="page-root">
+
+  <!-- Setup Screen -->
+  <div id="practice-setup">
+    <div class="page-header">
+      <div class="page-header__eyebrow">Practice Mode</div>
+      <h1 class="page-header__title">Choose Your Session</h1>
+      <p class="page-header__subtitle">Pick a topic and difficulty, then answer at your own pace with instant explanations.</p>
+    </div>
+
+    <div class="card" style="max-width:520px">
+      <div class="card__title" style="margin-bottom:var(--space-5)">Session Settings</div>
+      <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="form-group">
+          <label class="form-label" for="select-topic">Topic</label>
+          <select class="form-select" id="select-topic">
+            <option value="all">All Topics</option>
+            <option value="Mathematics">Mathematics</option>
+            <option value="English">English</option>
+            <option value="Reasoning">Reasoning</option>
+            <option value="GK">General Knowledge</option>
+            <option value="Science">Science</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="select-difficulty">Difficulty</label>
+          <select class="form-select" id="select-difficulty">
+            <option value="all">All Levels</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <button class="btn btn--primary btn--lg" id="btn-start-practice" style="margin-top:var(--space-2)">
+          ⚡ Start Practice
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question Screen -->
+  <div id="practice-question" style="display:none">
+    <div class="question-card">
+      <div class="question-card__meta">
+        <span id="q-progress" class="text-muted text-sm">Question 1 of 10</span>
+      </div>
+      <div class="progress" style="margin-bottom:var(--space-6)">
+        <div class="progress__fill" style="width:10%"></div>
+      </div>
+      <p class="question-card__body" id="q-body">Loading question…</p>
+      <div class="option-list" id="q-options"></div>
+      <div id="explanation" style="display:none;margin-top:var(--space-5);padding:var(--space-4);
+        background:var(--clr-surface-2);border-radius:var(--radius-md);font-size:var(--text-sm);
+        line-height:1.7;border-left:3px solid var(--clr-accent)"></div>
+      <div style="margin-top:var(--space-6);display:flex;justify-content:flex-end">
+        <button id="btn-next" class="btn btn--primary" style="display:none"
+          onclick="window.practiceModule.nextQuestion()">
+          Next Question →
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div id="practice-results" style="display:none"></div>
+
+</div>

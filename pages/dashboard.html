@@ -1,0 +1,107 @@
+<!-- ============================================================
+     ExamEdge Pro — pages/dashboard.html
+     ============================================================ -->
+<div class="page-root">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div class="page-header__eyebrow">Overview</div>
+    <h1 class="page-header__title" data-greeting>Good Morning, Scholar 👋</h1>
+    <p class="page-header__subtitle">Track your progress, continue where you left off, and keep climbing.</p>
+    <div class="page-header__actions">
+      <button class="btn btn--primary" onclick="window.navigate('/practice')">
+        ⚡ Quick Practice
+      </button>
+      <button class="btn btn--secondary" onclick="window.navigate('/mock')">
+        📋 Start Mock
+      </button>
+    </div>
+  </div>
+
+  <!-- Stat Cards -->
+  <div class="grid-stats">
+    <div class="stat-card">
+      <div class="stat-card__icon">⚡</div>
+      <div class="stat-card__value" data-stat-xp>0 XP</div>
+      <div class="stat-card__label">Total XP Earned</div>
+      <span class="stat-card__delta stat-card__delta--up">↑ Level <span data-stat-level>1</span></span>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon">🔥</div>
+      <div class="stat-card__value" data-stat-streak>0 days</div>
+      <div class="stat-card__label">Current Streak</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon">🎯</div>
+      <div class="stat-card__value" data-stat-accuracy>0%</div>
+      <div class="stat-card__label">Overall Accuracy</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__icon">📝</div>
+      <div class="stat-card__value" data-stat-questions>0</div>
+      <div class="stat-card__label">Questions Answered</div>
+    </div>
+  </div>
+
+  <!-- Main Grid -->
+  <div class="grid-2" style="margin-bottom:var(--space-6)">
+
+    <!-- XP & Level Card -->
+    <div class="card">
+      <div class="card__header">
+        <div>
+          <div class="card__title">Your Progress</div>
+          <div class="card__subtitle">XP & Level overview</div>
+        </div>
+        <span class="badge badge--blue" data-stat-achievements>0 achievements</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:var(--space-8)">
+        <div data-xp-ring></div>
+        <div style="flex:1">
+          <p class="text-muted text-sm" style="margin-bottom:var(--space-3)">Progress to next level</p>
+          <div class="progress progress--lg">
+            <div class="progress__fill" style="width:0%" data-accuracy-bar></div>
+          </div>
+          <p class="text-xs text-muted" style="margin-top:var(--space-2)">
+            <span data-xp>0</span> XP earned
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weak Topics -->
+    <div class="card">
+      <div class="card__header">
+        <div>
+          <div class="card__title">Weak Topics</div>
+          <div class="card__subtitle">Focus here to improve</div>
+        </div>
+        <button class="btn btn--sm btn--secondary" onclick="window.navigate('/practice')">Practice →</button>
+      </div>
+      <div data-weak-topics>
+        <p class="text-muted text-sm">Complete more practice to see weak topics.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="card">
+    <div class="card__header">
+      <div>
+        <div class="card__title">Recent Activity</div>
+        <div class="card__subtitle">Your last practice sessions</div>
+      </div>
+      <button class="btn btn--sm btn--ghost" onclick="window.navigate('/practice')">View All →</button>
+    </div>
+    <div data-recent-activity>
+      <div class="empty-state" style="padding:var(--space-8)">
+        <div class="empty-state__icon">📖</div>
+        <div class="empty-state__title">No sessions yet</div>
+        <div class="empty-state__desc">Start a practice session to see your activity here.</div>
+        <button class="btn btn--primary" onclick="window.navigate('/practice')">Start Practicing</button>
+      </div>
+    </div>
+  </div>
+
+</div>

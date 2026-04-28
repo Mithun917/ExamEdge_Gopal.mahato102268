@@ -1,0 +1,139 @@
+<!-- ============================================================
+     ExamEdge Pro — pages/profile.html
+     ============================================================ -->
+<div class="page-root">
+
+  <div class="page-header">
+    <div class="page-header__eyebrow">Account</div>
+    <h1 class="page-header__title">My Profile</h1>
+    <p class="page-header__subtitle">Manage your account, view achievements, and track milestones.</p>
+  </div>
+
+  <div class="grid-2" style="align-items:start">
+
+    <!-- Left Column: Identity + Edit Form -->
+    <div style="display:flex;flex-direction:column;gap:var(--space-6)">
+
+      <!-- Avatar & Level Card -->
+      <div class="card" style="text-align:center;padding:var(--space-8)">
+        <div style="display:inline-flex;align-items:center;justify-content:center;
+          width:80px;height:80px;border-radius:50%;
+          background:linear-gradient(135deg,var(--clr-accent),var(--clr-accent-2));
+          font-family:var(--font-display);font-weight:800;font-size:var(--text-2xl);
+          margin:0 auto var(--space-4);
+          box-shadow:0 0 32px var(--clr-accent-glow)"
+          data-user-avatar>U</div>
+        <div class="card__title" style="font-size:var(--text-xl)" data-user-name>Scholar</div>
+        <div class="text-muted text-sm" style="margin-top:var(--space-1)" data-user-email>—</div>
+
+        <div style="display:flex;justify-content:center;gap:var(--space-4);margin-top:var(--space-5)">
+          <div style="text-align:center">
+            <div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl)" data-xp>0</div>
+            <div class="text-xs text-muted">Total XP</div>
+          </div>
+          <div class="divider--vertical divider"></div>
+          <div style="text-align:center">
+            <div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl)" data-level>1</div>
+            <div class="text-xs text-muted">Level</div>
+          </div>
+          <div class="divider--vertical divider"></div>
+          <div style="text-align:center" id="streak-display">
+            <div style="font-family:var(--font-display);font-weight:800;font-size:var(--text-xl)">0</div>
+            <div class="text-xs text-muted">Streak</div>
+          </div>
+        </div>
+
+        <!-- XP Ring -->
+        <div style="margin-top:var(--space-6);display:flex;flex-direction:column;align-items:center;gap:var(--space-3)">
+          <div data-xp-ring></div>
+          <p class="text-xs text-muted">Progress to next level</p>
+        </div>
+      </div>
+
+      <!-- Edit Form -->
+      <div class="card">
+        <div class="card__title" style="margin-bottom:var(--space-5)">Edit Profile</div>
+        <form id="profile-form" style="display:flex;flex-direction:column;gap:var(--space-4)">
+          <div class="form-group">
+            <label class="form-label" for="profile-name">Full Name <span>*</span></label>
+            <input type="text" id="profile-name" class="form-input" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="profile-email">Email <span>*</span></label>
+            <input type="email" id="profile-email" class="form-input" placeholder="you@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="profile-bio">Bio</label>
+            <textarea id="profile-bio" class="form-textarea" placeholder="Tell the community about yourself…" rows="3"></textarea>
+          </div>
+          <div style="display:flex;gap:var(--space-3);justify-content:flex-end">
+            <button type="button" class="btn btn--ghost" onclick="window.navigate('/')">Cancel</button>
+            <button type="submit" class="btn btn--primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Achievements + Milestones -->
+    <div style="display:flex;flex-direction:column;gap:var(--space-6)">
+
+      <!-- Achievements -->
+      <div class="card">
+        <div class="card__header">
+          <div>
+            <div class="card__title">Achievements</div>
+            <div class="card__subtitle">Unlock by reaching goals</div>
+          </div>
+          <span class="badge badge--purple" id="achievement-count">0 unlocked</span>
+        </div>
+        <div data-achievements-grid style="display:flex;flex-direction:column;gap:var(--space-3)">
+          <!-- Injected by achievements.js -->
+          <div class="skeleton" style="height:68px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:68px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:68px;border-radius:var(--radius-lg)"></div>
+        </div>
+      </div>
+
+      <!-- Milestones -->
+      <div class="card">
+        <div class="card__header">
+          <div>
+            <div class="card__title">Milestones</div>
+            <div class="card__subtitle">Long-term study goals</div>
+          </div>
+        </div>
+        <div id="milestones-list" style="display:flex;flex-direction:column;gap:var(--space-3)">
+          <!-- Injected by milestones.js -->
+          <div class="skeleton" style="height:72px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:72px;border-radius:var(--radius-lg)"></div>
+          <div class="skeleton" style="height:72px;border-radius:var(--radius-lg)"></div>
+        </div>
+      </div>
+
+      <!-- Danger Zone -->
+      <div class="card" style="border-color:rgba(248,113,113,0.2)">
+        <div class="card__title" style="color:var(--clr-danger);margin-bottom:var(--space-3)">Danger Zone</div>
+        <p class="text-sm text-muted" style="margin-bottom:var(--space-4)">
+          These actions are permanent and cannot be undone.
+        </p>
+        <div style="display:flex;gap:var(--space-3);flex-wrap:wrap">
+          <button class="btn btn--secondary btn--sm" onclick="window.openModal?.({
+            title: 'Reset Progress',
+            body: 'This will permanently erase all your XP, achievements, and history. This cannot be undone.',
+            footer: \`<button class='btn btn--ghost' onclick='closeModal()'>Cancel</button>
+                     <button class='btn btn--danger' onclick='closeModal()'>Reset Everything</button>\`
+          })">Reset Progress</button>
+          <button class="btn btn--danger btn--sm" onclick="window.openModal?.({
+            title: 'Delete Account',
+            body: 'Your account and all data will be permanently deleted.',
+            footer: \`<button class='btn btn--ghost' onclick='closeModal()'>Cancel</button>
+                     <button class='btn btn--danger' onclick='closeModal()'>Delete Account</button>\`
+          })">Delete Account</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,137 @@
+<!-- ============================================================
+     ExamEdge Pro — pages/exam.html
+     ============================================================ -->
+<div class="page-root">
+
+  <div class="page-header">
+    <div class="page-header__eyebrow">Scheduled Exams</div>
+    <h1 class="page-header__title">Exam Library</h1>
+    <p class="page-header__subtitle">Full-length proctored exams mapped to real syllabus patterns.</p>
+    <div class="page-header__actions">
+      <button class="btn btn--secondary" onclick="window.navigate('/mock')">
+        📋 Take a Mock Instead
+      </button>
+    </div>
+  </div>
+
+  <!-- Filter Bar -->
+  <div style="display:flex;gap:var(--space-3);margin-bottom:var(--space-6);flex-wrap:wrap">
+    <button class="btn btn--primary btn--sm" data-exam-filter="all">All Exams</button>
+    <button class="btn btn--secondary btn--sm" data-exam-filter="available">Available</button>
+    <button class="btn btn--secondary btn--sm" data-exam-filter="attempted">Attempted</button>
+    <button class="btn btn--secondary btn--sm" data-exam-filter="locked">Locked</button>
+  </div>
+
+  <!-- Exam Grid -->
+  <div id="exam-list" class="grid-auto">
+
+    <!-- Exam cards injected by exam.js — static fallback below -->
+    <div class="card card--hover" style="cursor:pointer" onclick="window.examModule?.startExam('ssc_cgl')">
+      <div class="card__header">
+        <div>
+          <div class="card__title">SSC CGL Tier I</div>
+          <div class="card__subtitle">100 questions · 60 mins</div>
+        </div>
+        <span class="badge badge--green">Available</span>
+      </div>
+      <div style="margin:var(--space-4) 0;display:flex;gap:var(--space-4);font-size:var(--text-xs);color:var(--clr-text-muted)">
+        <span>📚 Quantitative · English · Reasoning · GK</span>
+      </div>
+      <div class="progress">
+        <div class="progress__fill" style="width:0%"></div>
+      </div>
+      <p class="text-xs text-muted" style="margin-top:var(--space-2)">Not attempted</p>
+    </div>
+
+    <div class="card card--hover" style="cursor:pointer" onclick="window.examModule?.startExam('ibps_po')">
+      <div class="card__header">
+        <div>
+          <div class="card__title">IBPS PO Prelim</div>
+          <div class="card__subtitle">100 questions · 60 mins</div>
+        </div>
+        <span class="badge badge--green">Available</span>
+      </div>
+      <div style="margin:var(--space-4) 0;font-size:var(--text-xs);color:var(--clr-text-muted)">
+        <span>📚 English · Quantitative · Reasoning</span>
+      </div>
+      <div class="progress">
+        <div class="progress__fill" style="width:30%"></div>
+      </div>
+      <p class="text-xs text-muted" style="margin-top:var(--space-2)">30% completed</p>
+    </div>
+
+    <div class="card card--hover" style="cursor:pointer;opacity:0.55">
+      <div class="card__header">
+        <div>
+          <div class="card__title">UPSC CSAT</div>
+          <div class="card__subtitle">80 questions · 120 mins</div>
+        </div>
+        <span class="badge badge--neutral">Locked</span>
+      </div>
+      <div style="margin:var(--space-4) 0;font-size:var(--text-xs);color:var(--clr-text-muted)">
+        <span>📚 Comprehension · Maths · Reasoning</span>
+      </div>
+      <div class="progress">
+        <div class="progress__fill" style="width:0%"></div>
+      </div>
+      <p class="text-xs text-muted" style="margin-top:var(--space-2)">Unlock at Level 3</p>
+    </div>
+
+    <div class="card card--hover" style="cursor:pointer" onclick="window.examModule?.startExam('rrb_ntpc')">
+      <div class="card__header">
+        <div>
+          <div class="card__title">RRB NTPC CBT-1</div>
+          <div class="card__subtitle">100 questions · 90 mins</div>
+        </div>
+        <span class="badge badge--green">Available</span>
+      </div>
+      <div style="margin:var(--space-4) 0;font-size:var(--text-xs);color:var(--clr-text-muted)">
+        <span>📚 Mathematics · GK · General Intelligence</span>
+      </div>
+      <div class="progress">
+        <div class="progress__fill" style="width:0%"></div>
+      </div>
+      <p class="text-xs text-muted" style="margin-top:var(--space-2)">Not attempted</p>
+    </div>
+
+    <div class="card card--hover" style="cursor:pointer" onclick="window.examModule?.startExam('cat')">
+      <div class="card__header">
+        <div>
+          <div class="card__title">CAT — VARC Section</div>
+          <div class="card__subtitle">40 questions · 40 mins</div>
+        </div>
+        <span class="badge badge--purple">New</span>
+      </div>
+      <div style="margin:var(--space-4) 0;font-size:var(--text-xs);color:var(--clr-text-muted)">
+        <span>📚 Reading Comprehension · Verbal Ability</span>
+      </div>
+      <div class="progress">
+        <div class="progress__fill" style="width:0%"></div>
+      </div>
+      <p class="text-xs text-muted" style="margin-top:var(--space-2)">Not attempted</p>
+    </div>
+
+    <div class="card card--hover" style="cursor:pointer;opacity:0.55">
+      <div class="card__header">
+        <div>
+          <div class="card__title">GATE CS — Full Mock</div>
+          <div class="card__subtitle">65 questions · 180 mins</div>
+        </div>
+        <span class="badge badge--neutral">Locked</span>
+      </div>
+      <div style="margin:var(--space-4) 0;font-size:var(--text-xs);color:var(--clr-text-muted)">
+        <span>📚 Core CS · Mathematics · Aptitude</span>
+      </div>
+      <div class="progress">
+        <div class="progress__fill" style="width:0%"></div>
+      </div>
+      <p class="text-xs text-muted" style="margin-top:var(--space-2)">Unlock at Level 5</p>
+    </div>
+
+  </div>
+
+</div>
+
+<style>
+  [data-exam-filter].btn--primary { pointer-events: none; }
+</style>

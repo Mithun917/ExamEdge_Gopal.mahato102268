@@ -1,0 +1,91 @@
+<!-- ============================================================
+     ExamEdge Pro — pages/mock.html
+     ============================================================ -->
+<div class="page-root">
+
+  <!-- Setup -->
+  <div id="mock-setup">
+    <div class="page-header">
+      <div class="page-header__eyebrow">Mock Exam</div>
+      <h1 class="page-header__title">Simulate the Real Exam</h1>
+      <p class="page-header__subtitle">Full-length timed exam with randomized questions across all topics.</p>
+    </div>
+    <div class="card" style="max-width:520px">
+      <div class="card__title" style="margin-bottom:var(--space-5)">Exam Configuration</div>
+      <div style="display:flex;flex-direction:column;gap:var(--space-4)">
+        <div class="form-group">
+          <label class="form-label" for="select-duration">Duration</label>
+          <select class="form-select" id="select-duration">
+            <option value="30">30 Minutes (Quick)</option>
+            <option value="60" selected>60 Minutes (Standard)</option>
+            <option value="120">120 Minutes (Full Length)</option>
+          </select>
+        </div>
+        <div class="card" style="background:var(--clr-surface-2);padding:var(--space-4)">
+          <ul style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--text-sm);color:var(--clr-text-muted)">
+            <li>✓ 50 randomized questions</li>
+            <li>✓ All topics covered</li>
+            <li>✓ Auto-submits when timer ends</li>
+            <li>✓ Detailed results & XP reward</li>
+          </ul>
+        </div>
+        <button class="btn btn--primary btn--lg" id="btn-start-mock">🚀 Begin Mock Exam</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Exam Screen -->
+  <div id="mock-exam" style="display:none">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--space-6)">
+      <div id="mock-q-meta" style="display:flex;gap:var(--space-2);flex-wrap:wrap"></div>
+      <div id="mock-timer" class="timer">60:00</div>
+    </div>
+
+    <div class="question-card" style="margin-bottom:var(--space-4)">
+      <p class="question-card__body" id="mock-q-body">Loading…</p>
+      <div class="option-list" id="mock-options"></div>
+      <div style="display:flex;justify-content:space-between;margin-top:var(--space-5)">
+        <button class="btn btn--ghost" id="btn-flag" onclick="window.mockModule.toggleFlag()">🏳 Flag</button>
+        <div style="display:flex;gap:var(--space-3)">
+          <button class="btn btn--secondary" onclick="window.mockModule.prevQuestion()">← Prev</button>
+          <button class="btn btn--secondary" onclick="window.mockModule.nextQuestion()">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Question Navigator -->
+    <div class="card" style="margin-bottom:var(--space-4)">
+      <div class="card__header">
+        <div class="card__title">Questions</div>
+        <button class="btn btn--danger btn--sm" id="btn-submit-mock">Submit Exam</button>
+      </div>
+      <div id="mock-nav" style="display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:var(--space-2)"></div>
+      <div style="display:flex;gap:var(--space-4);margin-top:var(--space-3);font-size:var(--text-xs);color:var(--clr-text-muted)">
+        <span>⬜ Unanswered</span>
+        <span style="color:var(--clr-accent)">🟦 Answered</span>
+        <span style="color:var(--clr-warn)">🚩 Flagged</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="mock-results" style="display:none"></div>
+
+</div>
+
+<style>
+  .nav-dot {
+    width: 32px; height: 32px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    background: var(--clr-surface-2);
+    border: 1px solid var(--clr-border);
+    color: var(--clr-text-muted);
+    cursor: pointer;
+    transition: all var(--dur-fast);
+  }
+  .nav-dot--answered { background: var(--clr-accent-dim); border-color: var(--clr-accent); color: var(--clr-accent); }
+  .nav-dot--flagged  { border-color: var(--clr-warn); color: var(--clr-warn); }
+  .nav-dot--active   { background: var(--clr-accent); color: #fff; border-color: var(--clr-accent); }
+</style>
