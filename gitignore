@@ -1,0 +1,49 @@
+# ================================================================
+#  ExamEdge Pro — .gitignore
+#  Files jo GitHub pe NAHI jaangi
+# ================================================================
+
+# ── ENVIRONMENT VARIABLES (MOST IMPORTANT) ──────────────────────
+# Real Firebase keys yahan hain — KABHI commit mat karo
+js/env.js
+
+# ── OS FILES ─────────────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ── EDITOR FILES ─────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swp
+*.swo
+
+# ── LOGS ─────────────────────────────────────────────────────────
+*.log
+logs/
+npm-debug.log*
+
+# ── NODE (agar future mein use karo) ─────────────────────────────
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# ── MISC ─────────────────────────────────────────────────────────
+*.bak
+*.tmp
+*.temp
+.env
+.env.local
+.env.production
